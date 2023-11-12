@@ -1,0 +1,22 @@
+<!-- Footer -->
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+    }
+</style>
+<footer class="footer mt-auto py-3 bg-light text-center w-100">
+    <div class="bg-success w-100 m-0">
+        <span class="text-light w-100">UCSM App &copy; <span id="currentYear"></span></span>
+    </div>
+
+    <!-- Script para obtener el año actual -->
+    <script>
+        document.getElementById('currentYear').innerHTML = new Date().getFullYear();
+    </script>
+</footer>
+</body>
+
+</html>
