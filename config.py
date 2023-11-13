@@ -8,4 +8,4 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-from routes.indexRoute import index
+from routes.indexRoute import *

@@ -1,6 +1,4 @@
 from config import app
-from flask import render_template
+from controllers.indexController import index
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+app.add_url_rule("/", view_func=index)
