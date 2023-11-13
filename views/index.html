@@ -2,7 +2,9 @@
 
 <div class="container mt-5">
     <h1>Bienvenido a la UCSM App</h1>
-    
+    {% for proceso in procesos %}
+    <p>{{ proceso.ID }}. {{ proceso.Nombre }}</p>
+    {% endfor %}
 </div>
 
 {% include 'partials/_footer.html' %}
