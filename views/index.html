@@ -2,9 +2,34 @@
 
 <div class="container mt-5">
     <h1>Bienvenido a la UCSM App</h1>
-    {% for proceso in procesos %}
-    <p>{{ proceso.ID }}. {{ proceso.Nombre }}</p>
-    {% endfor %}
+    <form class="form-inline">
+        <div class="form-group">
+            <select id="inputOpciones" class="form-control">
+                {% for proceso in procesos %}
+                    <option value="{{ proceso.Nombre }}">{{ proceso.ID }}. {{ proceso.Nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
 </div>
 
 {% include 'partials/_footer.html' %}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Inicializar Select2 en el campo de entrada con un ancho personalizado
+        $('#inputOpciones').select2({
+            placeholder: 'Selecciona o Escribe',
+            allowClear: true, // Permite borrar la selección
+            tags: true, // Permite agregar nuevas opciones
+            width: '100%', // Ajusta el ancho del cuadro de selección
+        });
+
+        // Desseleccionar la opción predeterminada después de la inicialización
+        $('#inputOpciones').val('').trigger('change');
+    });
+</script>

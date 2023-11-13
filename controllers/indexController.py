@@ -8,7 +8,6 @@ def index():
     id_proceso = 1
     result_procesos = db.session.execute(text('EXEC ObtenerProcesos'))
     procesos = [{'ID': row.ID, 'Nombre': row.Nombre} for row in result_procesos]
-    print(procesos)
-   
+       
     # Renderizamos la plantilla y pasamos los datos a la misma
     return render_template("index.html", procesos=procesos)
