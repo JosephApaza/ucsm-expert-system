@@ -6,11 +6,30 @@
         <div class="form-group">
             <select id="inputOpciones" class="form-control">
                 {% for proceso in procesos %}
-                    <option value="{{ proceso.Nombre }}">{{ proceso.ID }}. {{ proceso.Nombre }}</option>
+                    <option value="{{ proceso.ID }}">{{ proceso.ID }}. {{ proceso.Nombre }}</option>
                 {% endfor %}
             </select>
+            <a id="consultarLink" class="btn btn-primary" href="#">Consultar</a>
         </div>
     </form>
+</div>
+
+<!-- Modal para mostrar mensaje -->
+<div class="modal fade" id="modalMensaje" tabindex="-1" aria-labelledby="modalMensajeLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalMensajeLabel">Mensaje</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, selecciona una opción antes de consultar.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% include 'partials/_footer.html' %}
@@ -18,9 +37,10 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Inicializar Select2 en el campo de entrada con un ancho personalizado
         $('#inputOpciones').select2({
             placeholder: 'Selecciona o Escribe',
@@ -31,5 +51,23 @@
 
         // Desseleccionar la opción predeterminada después de la inicialización
         $('#inputOpciones').val('').trigger('change');
+
+        // Agregar evento de clic al botón Consultar
+        $('#consultarLink').on('click', function () {
+            // Obtener el valor seleccionado del cuadro de selección
+            var idProceso = $('#inputOpciones').val();
+
+            // Validar si se ha seleccionado una opción
+            if (!idProceso) {
+                // Mostrar el modal de mensaje
+                $('#modalMensaje').modal('show');
+            } else {
+                // Construir la URL de redirección
+                var urlRedireccion = '/proceso/' + idProceso;
+
+                // Redireccionar a la nueva página
+                window.location.href = urlRedireccion;
+            }
+        });
     });
 </script>
