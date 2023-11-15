@@ -1,6 +1,9 @@
 {% include 'partials/_header.html' %}
 
 <div class="container mt-5">
+    <a class="btn btn-secondary" href="javascript:history.back()">Retroceder</a>
+</div>
+<div class="container mt-5">
     {% for nombre in nombre %}
     <h1> {{nombre.Nombre}} </h1>
     {% endfor %}
@@ -8,6 +11,7 @@
     {% for paso in pasos %}
     <p> {{paso.Orden}}. {{ paso.Descripcion }}</p>
     {% endfor %}
+    
 </div>
 
 {% include 'partials/_footer.html' %}
