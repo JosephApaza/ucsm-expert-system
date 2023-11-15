@@ -1,8 +1,8 @@
 from config import app, db
-from flask import render_template, jsonify
+from flask import render_template
 from sqlalchemy import text
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def index():
     # Simplemente seleccionamos el primer proceso por ahora
     id_proceso = 1
