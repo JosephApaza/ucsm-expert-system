@@ -1,3 +1,4 @@
+import sys
 from config import app, db
 from flask import render_template, abort
 from sqlalchemy import text
@@ -7,6 +8,11 @@ def mostrar_pasos(id_proceso):
     try:
         # Intentar convertir id_proceso a un entero
         id_proceso = int(id_proceso)
+
+        # Verificar si el id_proceso es mayor que el valor máximo permitido
+        if id_proceso > sys.maxsize:
+            abort(400, "ID de proceso demasiado grande. Debe ser un número entero válido.")
+
     except ValueError:
         # Si la conversión falla, retornar un error 400 (Bad Request)
         abort(400, "ID de proceso no válido. Debe ser un número entero.")
