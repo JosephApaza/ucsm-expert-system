@@ -23,7 +23,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-                Por favor, selecciona una opción antes de consultar.
+                Por favor, selecciona una opción válida antes de consultar.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -44,9 +44,8 @@
         // Inicializar Select2 en el campo de entrada con un ancho personalizado
         $('#inputOpciones').select2({
             placeholder: 'Selecciona o Escribe',
-            allowClear: true, // Permite borrar la selección
-            tags: true, // Permite agregar nuevas opciones
-            width: '100%', // Ajusta el ancho del cuadro de selección
+            allowClear: true,
+            width: '100%',
         });
 
         // Desseleccionar la opción predeterminada después de la inicialización
