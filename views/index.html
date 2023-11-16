@@ -1,18 +1,22 @@
 {% include 'partials/_header.html' %}
 
 <div class="container mt-5">
-    <h1>Bienvenido a la UCSM App</h1>
-    <form class="form-inline">
-        <div class="form-group">
-            <select id="inputOpciones" class="form-control">
+    <h1 class="mb-4">UCSM App</h1>
+    <form class="row g-3">
+        <div class="col-md-6">
+            <select id="inputOpciones" class="form-select">
                 {% for proceso in procesos %}
                     <option value="{{ proceso.ID }}">{{ proceso.ID }}. {{ proceso.Nombre }}</option>
                 {% endfor %}
             </select>
+        </div>
+        <div class="col-md-6">
+            <label class="invisible">Espaciador invisible</label>
             <a id="consultarLink" class="btn btn-primary" href="#">Consultar</a>
         </div>
     </form>
 </div>
+
 
 <!-- Modal para mostrar mensaje -->
 <div class="modal fade" id="modalMensaje" tabindex="-1" aria-labelledby="modalMensajeLabel" aria-hidden="true">
@@ -38,6 +42,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    /* Estilo personalizado para ajustar la altura y centrar verticalmente */
+    .select2-container--default .select2-selection--single {
+        height: 40px; /* Ajusta la altura según tus necesidades */
+        display: flex;
+        align-items: center;
+    }
+
+    /* Pseudo-elementos para centrar verticalmente la flechita */
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+</style>
 
 <script>
     $(document).ready(function () {
