@@ -3,15 +3,16 @@
 <div class="container mt-5">
     <a class="btn btn-secondary" href="/">Retroceder</a>
 </div>
+
 <div class="container mt-5">
-    {% for nombre in nombre %}
-    <h1> {{nombre.Nombre}} </h1>
+    {% for proceso in proceso %}
+        <h1>{{ proceso.Nombre }}</h1>
+        <p>Enlace: <a href="{{ proceso.Url }}" target="_blank">{{ proceso.Url }}</a></p>
     {% endfor %}
-    
+
     {% for paso in pasos %}
-    <p> {{paso.Orden}}. {{ paso.Descripcion }}</p>
+        <p>{{ paso.Orden }}. {{ paso.Descripcion }}</p>
     {% endfor %}
-    
 </div>
 
 {% include 'partials/_footer.html' %}

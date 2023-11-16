@@ -40,10 +40,10 @@ def mostrar_pasos(id_proceso):
     pasos = [{'Orden': row.Orden, 'Descripcion': row.Descripcion} for row in pasos_proceso]
 
     # Obtener el nombre del proceso
-    nombre_proceso = db.session.execute(
-        text('EXEC ObtenerNombrePorID :id_proceso'), {'id_proceso': id_proceso}
+    info_proceso = db.session.execute(
+        text('EXEC ObtenerInfoProceso :id_proceso'), {'id_proceso': id_proceso}
     )
-    nombre = [{'Nombre': row.Nombre} for row in nombre_proceso]
+    proceso = [{'Nombre': row.Nombre, 'Descripcion': row.Descripcion, 'Url': row.Url} for row in info_proceso]
 
     # Renderizar la plantilla y pasar los datos
-    return render_template("pasos.html", pasos=pasos, nombre=nombre)
+    return render_template("pasos.html", pasos=pasos, proceso=proceso)
