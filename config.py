@@ -10,3 +10,4 @@ db = SQLAlchemy(app)
 
 from routes.indexRoute import *
 from routes.pasosRoute import *
+from routes.errorRoute import *
