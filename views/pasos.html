@@ -1,18 +1,25 @@
+<!-- Incluye el encabezado de la página desde el archivo '_header.html' en la carpeta 'partials' -->
 {% include 'partials/_header.html' %}
 
 <div class="container mt-5">
+    <!-- Enlace de retroceso -->
     <a class="btn btn-secondary" href="/">Retroceder</a>
 </div>
 
 <div class="container mt-5">
+    <!-- Ciclo para mostrar información del proceso -->
     {% for proceso in proceso %}
         <h1>{{ proceso.Nombre }}</h1>
+
+        <!-- Enlace del proceso -->
         <p>Enlace: <a href="{{ proceso.Url }}" target="_blank">{{ proceso.Url }}</a></p>
     {% endfor %}
 
+    <!-- Descripción de cada paso con su orden -->
     {% for paso in pasos %}
         <p>{{ paso.Orden }}. {{ paso.Descripcion }}</p>
     {% endfor %}
 </div>
 
+<!-- Incluye el pie de página desde el archivo '_footer.html' en la carpeta 'partials' -->
 {% include 'partials/_footer.html' %}

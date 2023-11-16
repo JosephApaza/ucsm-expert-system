@@ -8,6 +8,7 @@ def obtener_lista_procesos():
     procesos = db.session.execute(text('EXEC ObtenerProcesos')).fetchall()
     return [proceso.ID for proceso in procesos]
 
+# Ruta para mostrar los pasos de un proceso
 @app.route("/proceso/<id_proceso>", methods=['POST', 'GET'])
 def mostrar_pasos(id_proceso):
     # Obtener la lista de procesos
