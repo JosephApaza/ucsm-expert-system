@@ -1,6 +1,6 @@
 import sys
 from config import app, db
-from flask import render_template, abort
+from flask import render_template, redirect, url_for
 from sqlalchemy import text
 
 # Obtener la lista de procesos desde la base de datos
@@ -19,16 +19,18 @@ def mostrar_pasos(id_proceso):
 
         # Verificar si el id_proceso es mayor que el valor máximo permitido
         if id_proceso > sys.maxsize:
-            abort(400, "ID de proceso demasiado grande. Debe ser un número entero válido.")
+            # Redireccionar a la página de error 400
+            return redirect(url_for('error_400'))
 
         # Verificar si el id_proceso está en la lista de procesos
         if id_proceso not in lista_procesos:
-            abort(404, f"No se encontró el proceso con ID {id_proceso}.")
+            # Redireccionar a la página de error 404
+            return redirect(url_for('error_404'))
 
     except ValueError:
-        # Si la conversión falla, retornar un error 400 (Bad Request)
-        abort(400, "ID de proceso no válido. Debe ser un número entero.")
-
+        # Si la conversión falla, redireccionar a la página de error 400
+        return redirect(url_for('error_400'))
+    
     # Obtener la lista de pasos del proceso desde la base de datos
     pasos_proceso = db.session.execute(
         text('EXEC ObtenerPasosDelProceso :id_proceso'), {'id_proceso': id_proceso}
