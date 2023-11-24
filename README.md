@@ -1,4 +1,4 @@
-# ucsm-expert-system
+# Sistema Experto UCSM
 Sistema Experto para Preguntas Frecuentes sobre Procesos en la Universidad Católica de Santa María (UCSM)
 
 Página principal:
