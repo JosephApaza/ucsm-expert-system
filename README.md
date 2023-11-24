@@ -10,6 +10,6 @@ Búsqueda:
 Resultados de consulta:
 ![pasos-1](https://github.com/JosephApaza/ucsm-expert-system/assets/101999777/976be8e2-26d8-47b2-aa1a-d1f5247aba92)
 
-Posibles errores:
+Errores 400 y 404:
 ![error-400](https://github.com/JosephApaza/ucsm-expert-system/assets/101999777/bb97a477-dea9-4e69-8ebb-bf6c79b093ab)
 ![error-404](https://github.com/JosephApaza/ucsm-expert-system/assets/101999777/947afb6b-c39c-4cf8-bb32-03ef01fd1cef)
